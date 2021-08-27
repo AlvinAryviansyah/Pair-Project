@@ -1,0 +1,26 @@
+const express = require('express')
+const router = express.Router()
+const Controller = require('../controllers/controller')
+const getInfoUpdate = require('../middlewares/info')
+
+router.get('/', Controller.showRestaurant)
+router.get('/restaurant', getInfoUpdate, Controller.showRestaurant)
+router.get('/restaurant/add', getInfoUpdate, Controller.addRestaurantGet)
+router.post('/restaurant/add', getInfoUpdate, Controller.addRestaurantPost)
+router.get('/restaurant/edit/:id', getInfoUpdate, Controller.editRestaurantGet)
+router.post('/restaurant/edit/:id', getInfoUpdate, Controller.editRestaurantPost)
+router.get('/restaurant/delete/:id', getInfoUpdate, Controller.deleteRestaurant)
+router.get('/food', getInfoUpdate, Controller.showFood)
+router.get('/food/add', getInfoUpdate, Controller.addFoodGet)
+router.post('/food/add', getInfoUpdate, Controller.addFoodPost)
+router.get('/food/edit/:id', getInfoUpdate, Controller.editFoodGet)
+router.post('/food/edit/:id', getInfoUpdate, Controller.editFoodPost)
+router.get('/food/delete/:id', getInfoUpdate, Controller.deleteFood)
+router.get('/restaurant/addFood/:id', getInfoUpdate, Controller.addRestaurantFoodGet)
+router.post('/restaurant/addFood/:id', getInfoUpdate, Controller.addRestaurantFoodPost)
+router.get('/restaurant/food/:id', getInfoUpdate, Controller.showRestaurantFood )
+router.get('/food/restaurant/:id', getInfoUpdate, Controller.showFoodRestaurant)
+router.get('/restaurant/maps/:id', getInfoUpdate, Controller.showRestaurantMaps)
+
+
+module.exports = router
